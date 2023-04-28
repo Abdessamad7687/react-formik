@@ -1,9 +1,10 @@
 import React from 'react'
+import Title from './Title'
 
 const Form = () => {
     return (
         <form novalidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-900 ng-untouched ng-pristine ng-valid ng-submitted">
-            <h2 className="w-full text-3xl font-bold leading-tight">Contact us</h2>
+            <Title />
             <div>
                 <label for="name" className="block mb-1 ml-1">Name</label>
                 <input id="name" type="text" placeholder="Your name" required="" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 dark:bg-gray-800" />
