@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Title from './Title'
 
 const Form = () => {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     return (
         <form novalidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-900 ng-untouched ng-pristine ng-valid ng-submitted">
             <Title />
             <div>
                 <label for="name" className="block mb-1 ml-1">Name</label>
-                <input id="name" type="text" placeholder="Your name" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400 dark:bg-gray-800" />
+                <input id="name" value={name} type="text" placeholder="Your name" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400 dark:bg-gray-800"
+                onChange={(e) => setName(e.target.value)}
+                />
             </div>
             <div>
                 <label for="email" className="block mb-1 ml-1">Email</label>
-                <input id="email" type="email" placeholder="Your email" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400 dark:bg-gray-800" />
+                <input id="email" value={email} type="email" placeholder="Your email" className="block w-full p-2 rounded focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-blue-400 dark:bg-gray-800"
+                onChange={(e) => setEmail(e.target.value)}
+                />
             </div>
             <div>
                 <label for="message" className="block mb-1 ml-1">Message</label>
