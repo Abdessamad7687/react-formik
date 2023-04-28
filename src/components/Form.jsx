@@ -7,7 +7,7 @@ const Form = () => {
     const [message, setMessage] = useState('')
     return (
         <form novalidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-900 ng-untouched ng-pristine ng-valid ng-submitted">
-            <Title />
+            <Title title="React Formik" />
 
             {/* Name */}
 
