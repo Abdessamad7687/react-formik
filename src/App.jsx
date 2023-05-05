@@ -1,8 +1,43 @@
-
-import './App.css'
 import Title from "./components/Title"
+import './App.css'
+import * as Yup from 'yup'
+import { useState } from 'react'
+
+
+const schema = Yup.object().shape({
+    username: Yup.string().required('Username is required'),
+    email: Yup.string()
+        .email('Invalid email')
+        .required('Email is required'),
+    phone: Yup.string()
+        .matches(/^[0-9]+$/, 'Phone number must be a number')
+        .required('Phone number is required'),
+})
+
 
 const App = () => {
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        phone: '',
+    })
+
+    const [formErrors, setFormErrors] = useState({})
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    }
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        try {
+          await schema.validate(formData, { abortEarly: false })
+  
+        } catch (err) {
+          const errors = {};
+          err.inner.forEach((e) => (errors[e.path] = e.message))
+          setFormErrors(errors)
+        }
+      }
     return (
         <div className="container mt-5">
             <Title />
@@ -10,7 +45,11 @@ const App = () => {
 
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Username">Username</label>
-                    <input type="text" className="form-control" />
+                    <input type="text"
+                        name="username"
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        className="form-control" />
                 </div>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
