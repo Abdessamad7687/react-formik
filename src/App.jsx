@@ -1,23 +1,26 @@
 
 import './App.css'
+import Title from "./components/Title"
+
 const App = () => {
-  return (
-    <div className="container mt-5">
+    return (
+        <div className="container mt-5">
+            <Title />
             <form className="form" id="form" autoComplete='off'>
-                
+
                 <div className="form-group col-md-6 mx-auto mt-3">
-                <label htmlFor="Username">Username</label>
+                    <label htmlFor="Username">Username</label>
                     <input type="text" className="form-control" />
                 </div>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
-                <label htmlFor="Email">Email</label>
+                    <label htmlFor="Email">Email</label>
                     <input type="email" className="form-control" />
                 </div>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
-                <label htmlFor="Phone">Phone</label>
-                    <input type="number" className="form-control" />  
+                    <label htmlFor="Phone">Phone</label>
+                    <input type="number" className="form-control" />
                 </div>
 
 
@@ -28,7 +31,7 @@ const App = () => {
                 </div>
             </form>
         </div>
-  )
+    )
 }
 
 export default App
