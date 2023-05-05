@@ -30,18 +30,18 @@ const App = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-          await schema.validate(formData, { abortEarly: false })
-  
+            await schema.validate(formData, { abortEarly: false })
+
         } catch (err) {
-          const errors = {};
-          err.inner.forEach((e) => (errors[e.path] = e.message))
-          setFormErrors(errors)
+            const errors = {};
+            err.inner.forEach((e) => (errors[e.path] = e.message))
+            setFormErrors(errors)
         }
-      }
+    }
     return (
         <div className="container mt-5">
             <Title />
-            <form className="form" id="form" autoComplete='off'>
+            <form className="form" id="form" autoComplete='off' onSubmit={handleSubmit}>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Username">Username</label>
@@ -50,6 +50,9 @@ const App = () => {
                         value={formData.username}
                         onChange={handleInputChange}
                         className="form-control" />
+                    {formErrors.username && (
+                        <div className="invalid-feedback">{formErrors.username}</div>
+                    )}
                 </div>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
