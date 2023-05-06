@@ -60,7 +60,7 @@ const App = () => {
 
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Email">Email</label>
-                    <input type="email"
+                    <input type="text"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="form-control" />
