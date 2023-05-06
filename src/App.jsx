@@ -61,7 +61,7 @@ const App = () => {
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Email">Email</label>
                     <input type="email"
-                        value={formData.username}
+                        value={formData.email}
                         onChange={handleInputChange}
                         className="form-control" />
                     {formErrors.email && (
@@ -73,6 +73,8 @@ const App = () => {
                     <label htmlFor="Phone">Phone</label>
                     <input
                         type="number"
+                        value={formData.phone}
+                        onChange={handleInputChange}
                         className="form-control"
                     />
                     {formErrors.phone && (
