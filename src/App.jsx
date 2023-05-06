@@ -13,7 +13,7 @@ const schema = Yup.object().shape({
         .matches(/^[0-9]+$/, 'Phone number must be a number')
         .required('Phone number is required'),
 })
-    
+
 
 const App = () => {
     const [formData, setFormData] = useState({
@@ -53,24 +53,37 @@ const App = () => {
                         onChange={handleInputChange}
                         className="form-control" />
                     {formErrors.username && (
-                        <div className="invalid-feedback">{formErrors.username}</div>
+                        <div className="text-danger">{formErrors.username}</div>
+                    )}
+                </div>
+
+
+                <div className="form-group col-md-6 mx-auto mt-3">
+                    <label htmlFor="Email">Email</label>
+                    <input type="email"
+                        value={formData.username}
+                        onChange={handleInputChange}
+                        className="form-control" />
+                    {formErrors.email && (
+                        <div className="text-danger">{formErrors.email}</div>
                     )}
                 </div>
 
                 <div className="form-group col-md-6 mx-auto mt-3">
-                    <label htmlFor="Email">Email</label>
-                    <input type="email" className="form-control" />
-                </div>
-
-                <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Phone">Phone</label>
-                    <input type="number" className="form-control" />
+                    <input
+                        type="number"
+                        className="form-control"
+                    />
+                    {formErrors.phone && (
+                        <div className="text-danger">{formErrors.phone}</div>
+                    )}
                 </div>
 
 
                 <div className="form-group col-md-4 mx-auto mt-3">
                     <button className="btn text-white w-100">
-                        Submit new Person
+                        Submit
                     </button>
                 </div>
             </form>
