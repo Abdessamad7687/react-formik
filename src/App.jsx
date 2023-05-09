@@ -44,7 +44,6 @@ const App = () => {
         <div className="container mt-5">
             <Title />
             <form className="form" id="form" autoComplete='off' onSubmit={handleSubmit}>
-
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Username">Username</label>
                     <input type="text"
@@ -61,6 +60,7 @@ const App = () => {
                 <div className="form-group col-md-6 mx-auto mt-3">
                     <label htmlFor="Email">Email</label>
                     <input type="text"
+                    name="email"
                         value={formData.email}
                         onChange={handleInputChange}
                         className="form-control" />
@@ -73,6 +73,7 @@ const App = () => {
                     <label htmlFor="Phone">Phone</label>
                     <input
                         type="number"
+                        name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="form-control"
